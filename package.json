@@ -1,0 +1,13 @@
+{
+  "name": "sn-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": "bin/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "ejs": "^3.1.5",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3",
+    "readdirp": "^3.5.0"
+  }
+}
