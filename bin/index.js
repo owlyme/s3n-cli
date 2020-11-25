@@ -11,9 +11,15 @@ inquirer.prompt([
     type: 'input',
     name: "name",
     message: "Project name"
+  },
+  {
+    type: 'list',
+    name: "type",
+    message: "选择项目类型",
+    choices: ['a', 'b']
   }
 ]).then(async (anwsers) => {
-    console.log(anwsers)
+  console.log(anwsers)
   const tempDir = path.join(__dirname, '../gulpTemplate');
   const destDir = process.cwd()
   for await (const entry of readdirp(tempDir)) {
@@ -26,5 +32,4 @@ inquirer.prompt([
       fs.writeFileSync(path.join(destDir, filePath), result)
     })
   }
-
 })

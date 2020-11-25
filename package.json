@@ -4,7 +4,7 @@
   "main": "index.js",
   "bin": "bin/index.js",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "ejs": "^3.1.5",
     "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
