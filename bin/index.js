@@ -6,21 +6,23 @@ const path = require('path')
 const inquirer = require('inquirer') // 用来和用户交互
 const ejs = require('ejs') // 文件模版语法
 const readdirp = require('readdirp');
+
+const templateMap = {
+  '传统多页面开发': '../multiplePages',
+  '小程序开发': '../miniprogram'
+}
+
 inquirer.prompt([
-  {
-    type: 'input',
-    name: "name",
-    message: "Project name"
-  },
   {
     type: 'list',
     name: "type",
     message: "选择项目类型",
-    choices: ['a', 'b']
+    choices: ['传统多页面开发', '小程序开发']
   }
 ]).then(async (anwsers) => {
-  console.log(anwsers)
-  const tempDir = path.join(__dirname, '../gulpTemplate');
+  // console.log(anwsers)
+  let {type} = anwsers
+  const tempDir = path.join(__dirname, templateMap[type]);
   const destDir = process.cwd()
   for await (const entry of readdirp(tempDir)) {
     const filePath = entry.path;
