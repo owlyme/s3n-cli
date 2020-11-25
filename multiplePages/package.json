@@ -1,9 +1,8 @@
 {
-  "name": "zce-gulp-demo",
+  "name": "multiple-pages",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/zce/zce-gulp-demo.git",
-  "author": "zce <w@zce.me> (https://zce.me)",
+  "author": "owlyme",
   "license": "MIT",
   "scripts": {
     "clean": "gulp clean",
