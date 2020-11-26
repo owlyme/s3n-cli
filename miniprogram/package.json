@@ -1,0 +1,36 @@
+{
+  "name": "wx-miniprogram-boilerplate",
+  "version": "0.0.2",
+  "description": "基于gulp构建的微信小程序开发工作流",
+  "main": "",
+  "scripts": {
+    "dev": "set NODE_ENV=development && gulp dev ",
+    "build": "set NODE_ENV=production && gulp build",
+    "test": "gulp test",
+    "lint": "eslint --fix --ext .js src/"
+  },
+  "author": "yangqi",
+  "repository": {
+    "type": "git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "eslint": "^5.0.1",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-image": "^6.2.1",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-less": "^3.5.0",
+    "gulp-remove-logging": "^1.2.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-uglify": "^3.0.2",
+    "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.5.2",
+    "gulp-postcss": "^9.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-px2rpx": "^0.0.4"
+  }
+}

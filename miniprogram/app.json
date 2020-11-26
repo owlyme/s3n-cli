@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "微信小程序",
+    "navigationStyle": "custom",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "networkTimeout": {},
+  "usingComponents": {
+    
+  },
+  "tabBar": {  
+    "color": "#999999",
+    "selectedColor": "#FF3232",
+    "borderStyle": "black",
+    "list": [
+        {  
+          "selectedIconPath": "images/tabbar/index-1.png",
+          "iconPath": "images/tabbar/index-0.png",
+          "pagePath": "pages/index/index",
+          "text": "首页"
+        }, 
+        {  
+          "selectedIconPath": "images/tabbar/catgery-1.png",
+          "iconPath": "images/tabbar/catgery-0.png",
+          "pagePath": "pages/category/category",
+          "text": "分类"  
+        }, 
+        {  
+          "selectedIconPath": "images/tabbar/buy-1.png",
+          "iconPath": "images/tabbar/buy-0.png",
+          "pagePath": "pages/worthBuying/worthBuying",
+          "text": "值得买"  
+        }, 
+        {  
+          "selectedIconPath": "images/tabbar/cart-1.png",
+          "iconPath": "images/tabbar/cart-0.png",
+          "pagePath": "pages/goodCart/goodCart",
+          "text": "购物车"  
+        },
+        {  
+          "selectedIconPath": "images/tabbar/mine-1.png",
+          "iconPath": "images/tabbar/mine-0.png",
+          "pagePath": "pages/mine/mine",
+          "text": "我的"  
+        }
+    ]  
+  },
+  "debug": false,
+  "useExtendedLib": {
+     
+  },
+  "lazyCodeLoading": "requiredComponents"
+}
