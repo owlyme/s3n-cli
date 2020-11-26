@@ -1,9 +1,14 @@
 {
-  "name": "sn-cli",
+  "name": "s3n-cli",
   "version": "1.0.0",
   "main": "lib/index.js",
   "bin": "bin/index.js",
   "license": "MIT",
+  "author": "owlyme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owlyme/s3n-cli.git"
+  },
   "dependencies": {
     "ejs": "^3.1.5",
     "fs-extra": "^9.0.1",
