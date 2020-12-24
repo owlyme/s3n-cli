@@ -5,13 +5,7 @@
 
 目前开发微信小程序时，可选的技术方案大概有四种，分别是：
 1. [微信小程序原生开发](https://developers.weixin.qq.com/miniprogram/dev/)
-2. [使用wepy框架](https://tencent.github.io/wepy/index.html)
-3. [使用mpvue框架](http://mpvue.com/)
 4. [使用taro框架](https://github.com/NervJS/taro)
-
-几种开发方案，各有优劣。使用第三方框架开发，可以享受框架带来的开发便利，但对于小程序新增的诸多特性和功能，比如**WXS模块**、**自定义组件**和**插件**等，受制于框架实现，无法使用。
-
-而原生小程序的开发模式，又过于简陋，就样式来说，写惯了less，stylus和sass的同学一定无法忍受wxss的这种写法，基于此，决定使用**gulp**自动化工具来构建一套微信小程序开发的基础模板，在完全保留微信小程序功能和特性的基础上，又可以的使用`less`来写样式，同时加入图片压缩，命令行快速创建模板等特性，如此开发，快哉，快哉！
 
 ### 特性
 
@@ -26,10 +20,6 @@
 ##### 0. 开始之前，请确保已经安装node和npm，全局安装gulp-cli
 ```
 $ npm install --global gulp-cli
-```
-##### 1. 下载代码
-```
-$ git clone https://github.com/YangQiGitHub/wx-miniprogram-boilerplate.git
 ```
 ##### 2. 进目录，安装依赖
 ```
@@ -73,7 +63,6 @@ wx-miniprogram-boilerplate
 │    └── api.config.js       // 项目api接口配置
 ├── .gitignore
 ├── .eslintrc.js
-├── package-lock.json
 ├── package.json
 └── README.md
 
@@ -95,7 +84,6 @@ Tasks:
   img              编译压缩图片文件
   watch            监听开发文件变化
   devEnv/testEnv/prodEnv 生成对应环境的请求域名配置
-
   auto             自动根据模板创建page,template或者component(小程序自定义组件)
 
 gulp auto 
@@ -115,10 +103,5 @@ gulp auto
 ```
 
 ### TODO
-- [x] 代码注释
-- [x] 规范命令行使用
 - [x] eslint
-- [x] gulp增量编译
-- [x] 生产环境打包
 
-# sanben-dianshang

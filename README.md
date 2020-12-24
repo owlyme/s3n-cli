@@ -25,3 +25,5 @@ yarn 安装会出现奇怪的问题
     <view class="xxx-components {{customClass}}" style="{{customStyle}}">
     </view>
     ```
+## 功能
+1. 2020/12/24 添加路径判断功能
