@@ -1,5 +1,5 @@
 export const getDataset = event => event.currentTarget.dataset
-// 获取data值
+  // 获取data值
 export const getDatasetValue = dataName => event => event.currentTarget.dataset[dataName];
 // 获取input Value值
 export const getInputValue = event => event.detail.value;
@@ -9,12 +9,12 @@ export const getNodeValue = (dataName) => event => ({
 });
 // 判断滚动方向
 export const isScrollUp = event => {
-  let {type, detail} = event
-  if (type==='scroll') {
-    return detail.deltaY > 0
+    let { type, detail } = event
+    if (type === 'scroll') {
+      return detail.deltaY > 0
+    }
   }
-}
-// 防抖
+  // 防抖
 export const debounce = (fn, wait) => {
   let timer = null;
   return (...arg) => {

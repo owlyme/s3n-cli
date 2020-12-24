@@ -20,3 +20,8 @@ yarn 安装会出现奇怪的问题
     - 组件的接口
         - 模拟数据
     - 组件的样式
+    - 小程序组件必须要有 customClass, customStyle 属性
+    - ```html
+    <view class="xxx-components {{customClass}}" style="{{customStyle}}">
+    </view>
+    ```
