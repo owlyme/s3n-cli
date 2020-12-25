@@ -1,6 +1,9 @@
 ## 工作模板
 ```
 npm install -g s3n-cli
+or
+npm update s3n-cli -g
+
 ```
 ## 
 yarn 安装会出现奇怪的问题
@@ -25,5 +28,9 @@ yarn 安装会出现奇怪的问题
     <view class="xxx-components {{customClass}}" style="{{customStyle}}">
     </view>
     ```
+
+## 操作
+1. npm config set registry https://registry.npmjs.org
+2. 
 ## 功能
 1. 2020/12/24 添加路径判断功能

@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const rename = require('gulp-rename');
 const del = require('del');
-const imagemin = require('gulp-image');
+// const imagemin = require('gulp-image');
 const path = require('path');
 const eslint = require('gulp-eslint');
 const postcss = require('gulp-postcss');
@@ -11,7 +11,7 @@ const pxtoviewport = require('postcss-px-to-viewport');
 const srcPath = './src/**';
 const distPath = './dist/';
 const wxmlFiles = [`${srcPath}/*.wxml`, `!${srcPath}/_template/*.wxml`];
-const lessFiles = [`${srcPath}/*.less`,`!${srcPath}/styles/**/*.less`, `!${srcPath}/_template/*.less`];
+const lessFiles = [`${srcPath}/*.less`, `!${srcPath}/styles/**/*.less`, `!${srcPath}/_template/*.less`];
 const jsonFiles = [`${srcPath}/*.json`, `!${srcPath}/_template/*.json`];
 const jsFiles = [`${srcPath}/*.js`, `!${srcPath}/_template/*.js`, `!${srcPath}/env/*.js`];
 const imgFiles = [
@@ -22,11 +22,11 @@ const imgFiles = [
 console.log(process.env.NODE_ENV)
 const nodeEnv = process.env.NODE_ENV
 
-if (nodeEnv ==='production') {
+if (nodeEnv === 'production') {
   wxmlFiles.push(`!${srcPath}/pageList/*.wxml`, `!${srcPath}/componentList/*.wxml`);
   lessFiles.push(`!${srcPath}/pageList/*.less`, `!${srcPath}/componentList/*.less`);
   jsonFiles.push(`!${srcPath}/pageList/*.json`, `!${srcPath}/componentList/*.json`);
-  jsFiles.push(`!${srcPath}/pageList/*.js`, `!${srcPath}/componentList/*.js`); 
+  jsFiles.push(`!${srcPath}/pageList/*.js`, `!${srcPath}/componentList/*.js`);
 }
 
 /* 清除dist目录 */
@@ -99,14 +99,14 @@ gulp.task(wxss);
 
 /* 编译压缩图片 */
 const img = () => {
-  if (nodeEnv ==='production') {
+  if (nodeEnv === 'production') {
     return gulp
-      .src(imgFiles, { since: gulp.lastRun(img)})
-      .pipe( imagemin()) 
+      .src(imgFiles, { since: gulp.lastRun(img) })
+      // .pipe( imagemin()) 
       .pipe(gulp.dest(distPath))
   } else {
     return gulp
-      .src(imgFiles, { since: gulp.lastRun(img)})
+      .src(imgFiles, { since: gulp.lastRun(img) })
       .pipe(gulp.dest(distPath))
   }
 };
@@ -127,14 +127,14 @@ gulp.task('watch', () => {
 /* build */
 gulp.task(
   'build',
-  gulp.series('clean', gulp.parallel( 'wxml', 'js', 'json', 'wxss', 'img', 'prodEnv'))
+  gulp.series('clean', gulp.parallel('wxml', 'js', 'json', 'wxss', 'img', 'prodEnv'))
 );
 
 /* dev */
-gulp.task('dev', gulp.series('clean', gulp.parallel( 'wxml', 'js', 'json', 'wxss', 'img', 'devEnv'), 'watch'));
+gulp.task('dev', gulp.series('clean', gulp.parallel('wxml', 'js', 'json', 'wxss', 'img', 'devEnv'), 'watch'));
 
 /* test */
-gulp.task('test', gulp.series('clean', gulp.parallel( 'wxml', 'js', 'json', 'wxss', 'img', 'testEnv')));
+gulp.task('test', gulp.series('clean', gulp.parallel('wxml', 'js', 'json', 'wxss', 'img', 'testEnv')));
 
 /**
  * auto 自动创建page or template or component

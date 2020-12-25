@@ -1,6 +1,6 @@
 {
   "name": "s3n-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "bin": "bin/index.js",
   "license": "MIT",
