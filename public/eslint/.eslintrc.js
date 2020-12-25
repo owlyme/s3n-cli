@@ -30,6 +30,8 @@ module.exports = {
     wx: false,
     App: false,
     getCurrentPages: false,
-    Component: false
+    Component: false,
+    $: false,
+    jQuery: false
   }
 };

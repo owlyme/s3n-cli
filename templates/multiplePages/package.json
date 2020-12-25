@@ -6,8 +6,9 @@
   "license": "MIT",
   "scripts": {
     "clean": "gulp clean",
-    "build": "gulp build",
-    "develop": "gulp develop"
+    "build": "set NODE_ENV=production&& gulp build",
+    "test": "set NODE_ENV=testing&& gulp build",
+    "dev": "set NODE_ENV=development&& gulp develop"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -30,6 +31,19 @@
     "gulp-sass": "^4.0.2",
     "gulp-swig": "^0.9.1",
     "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^3.1.6"
+    "gulp-useref": "^3.1.6",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix --ext .js src/",
+      "git add ."
+    ]
   }
 }

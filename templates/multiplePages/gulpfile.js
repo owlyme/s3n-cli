@@ -1,16 +1,15 @@
 const { src, dest, parallel, series, watch } = require('gulp')
-
 const del = require('del')
 const browserSync = require('browser-sync')
-
 const loadPlugins = require('gulp-load-plugins')
-
 const plugins = loadPlugins()
 const bs = browserSync.create()
 
+
+const NODE_ENV = process.env.NODE_ENV
+console.log(`current env ${NODE_ENV}`)
 const data = {
-  menus: [
-    {
+  menus: [{
       name: 'Home',
       icon: 'aperture',
       link: 'index.html'
@@ -26,8 +25,7 @@ const data = {
     {
       name: 'Contact',
       link: '#',
-      children: [
-        {
+      children: [{
           name: 'Twitter',
           link: 'https://twitter.com/w_zce'
         },
@@ -95,9 +93,9 @@ const serve = () => {
   watch('src/assets/styles/*.scss', style)
   watch('src/assets/scripts/*.js', script)
   watch('src/*.html', page)
-  // watch('src/assets/images/**', image)
-  // watch('src/assets/fonts/**', font)
-  // watch('public/**', extra)
+    // watch('src/assets/images/**', image)
+    // watch('src/assets/fonts/**', font)
+    // watch('public/**', extra)
   watch([
     'src/assets/images/**',
     'src/assets/fonts/**',
@@ -119,23 +117,30 @@ const serve = () => {
 }
 
 const useref = () => {
-  return src('temp/*.html', { base: 'temp' })
-    .pipe(plugins.useref({ searchPath: ['temp', '.'] }))
-    // html js css
-    .pipe(plugins.if(/\.js$/, plugins.uglify()))
-    .pipe(plugins.if(/\.css$/, plugins.cleanCss()))
-    .pipe(plugins.if(/\.html$/, plugins.htmlmin({
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true
-    })))
-    .pipe(dest('dist'))
+  console.log(NODE_ENV === 'production', 'production', NODE_ENV)
+  if (NODE_ENV === 'production') {
+    return src('temp/*.html', { base: 'temp' })
+      .pipe(plugins.useref({ searchPath: ['temp', '.'] }))
+      // html js css
+      .pipe(plugins.if(/\.js$/, plugins.uglify()))
+      .pipe(plugins.if(/\.css$/, plugins.cleanCss()))
+      .pipe(plugins.if(/\.html$/, plugins.htmlmin({
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true
+      })))
+      .pipe(dest('dist'))
+  } else {
+    return src('temp/*.html', { base: 'temp' })
+      .pipe(plugins.useref({ searchPath: ['temp', '.'] }))
+      .pipe(dest('dist'))
+  }
 }
 
 const compile = parallel(style, script, page)
 
 // 上线之前执行的任务
-const build =  series(
+const build = series(
   clean,
   parallel(
     series(compile, useref),
