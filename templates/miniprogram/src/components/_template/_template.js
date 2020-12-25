@@ -1,4 +1,4 @@
-import {Path, Router} from '../../router/index';
+// import {Path, Router} from '../../router/index';
 
 Component({
   options: {
@@ -37,7 +37,7 @@ Component({
 
   methods: {
     init() {
-      
+
     },
   }
 

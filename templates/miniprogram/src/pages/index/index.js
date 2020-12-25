@@ -1,6 +1,6 @@
-import {Path, Router} from '../../router/index';
+// import {Path, Router} from '../../router/index';
+// const App = getApp();
 
-const App = getApp();
 Page({
   data: {},
   onLoad() {

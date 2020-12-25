@@ -1,4 +1,5 @@
-const fomartStringParamToJson = key =>  param => typeof param === 'string' ? {[key]: param} : param;
+const fomartStringParamToJson = key => param => typeof param === 'string' ? {
+  [key]: param } : param;
 // => {title: value}
 const fomartTitleStringParamToJson = fomartStringParamToJson('title');
 
@@ -28,12 +29,12 @@ export const Toast = {
   close: wx.hideToast
 };
 
-export const Modal = (props ={}) => {
+export const Modal = (props = {}) => {
   wx.showModal({
     title: '提示',
-    confirmText:'确定',
+    confirmText: '确定',
     confirmColor: '#FF3232',
-    success (res) {
+    success(res) {
       if (res.confirm) {
         console.log('用户点击确定')
       } else if (res.cancel) {
@@ -44,7 +45,6 @@ export const Modal = (props ={}) => {
   })
 };
 
-
 // Do something initial when launch.
 export const setNavBarSize = (cb = f => f) => {
   let menuButtonObject = wx.getMenuButtonBoundingClientRect();
@@ -53,7 +53,7 @@ export const setNavBarSize = (cb = f => f) => {
       //导航高度
       let statusBarHeight = res.statusBarHeight,
         navTop = menuButtonObject.top,
-        navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight)*2;
+        navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;
 
       cb({
         navHeight,
@@ -77,7 +77,7 @@ export const boundingClientRect = async nodeId => {
     query.selectViewport().scrollOffset();
 
 
-    query.exec(function (res) {
+    query.exec(function(res) {
       const {
         bottom,
         height,
@@ -91,7 +91,7 @@ export const boundingClientRect = async nodeId => {
         scrollLeft,
         scrollTop,
         scrollWidth
-      } = res[1];// 显示区域的竖直滚动位置
+      } = res[1]; // 显示区域的竖直滚动位置
       resolve({
         target_bottom: bottom,
         target_height: height,
@@ -124,7 +124,7 @@ export const showActionSheet = ({
         let selectedItem = itemList[res.tapIndex];
         resolve(selectedItem, res.tapIndex);
       },
-      fail (res) {
+      fail(res) {
         reject(res.errMsg);
         // Toast.show();
       }
@@ -132,21 +132,20 @@ export const showActionSheet = ({
   });
 };
 
-
 export const chooseImage = (props) => {
   let defaultPorps = {
     count: 1,
     sizeType: ['original', 'compressed'],
     sourceType: ['album', 'camera'],
   };
-  let {count, sizeType, sourceType} = props ? {...defaultPorps, ...props} : defaultPorps;
+  let { count, sizeType, sourceType } = props ? {...defaultPorps, ...props } : defaultPorps;
 
   return new Promise((resolve) => {
     wx.chooseImage({
       count,
       sizeType,
       sourceType,
-      success (res) {
+      success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
         let pathes = count === 1 ? tempFilePaths[0] : tempFilePaths;
