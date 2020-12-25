@@ -7,14 +7,18 @@
     "dev": "set NODE_ENV=development && gulp dev ",
     "build": "set NODE_ENV=production && gulp build",
     "test": "gulp test",
-    "lint": "eslint --fix --ext .js src/"
+    "lint": "eslint --fix --ext .js src/",
+    "tt": "node test.js"
   },
   "author": "owlyme",
   "repository": {
     "type": "git"
   },
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3"
+  },
   "dependencies": {
     "@vant/weapp": "^1.6.4",
     "del": "^6.0.0",
@@ -31,5 +35,16 @@
   },
   "peerDependency": {
     "postcss": "^8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix --ext .js src/",
+      "git add ."
+    ]
   }
 }
