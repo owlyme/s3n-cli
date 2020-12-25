@@ -117,7 +117,6 @@ const serve = () => {
 }
 
 const useref = () => {
-  console.log(NODE_ENV === 'production', 'production', NODE_ENV)
   if (NODE_ENV === 'production') {
     return src('temp/*.html', { base: 'temp' })
       .pipe(plugins.useref({ searchPath: ['temp', '.'] }))

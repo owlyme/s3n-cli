@@ -4,8 +4,8 @@
   "description": "基于gulp构建的微信小程序开发工作流",
   "main": "",
   "scripts": {
-    "dev": "set NODE_ENV=development && gulp dev ",
-    "build": "set NODE_ENV=production && gulp build",
+    "dev": "set NODE_ENV=development&& gulp dev ",
+    "build": "set NODE_ENV=production&& gulp build",
     "test": "gulp test",
     "lint": "eslint --fix --ext .js src/",
     "tt": "node test.js"

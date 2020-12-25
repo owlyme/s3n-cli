@@ -19,10 +19,10 @@ const imgFiles = [
   `${srcPath}/images/**/*.{png,jpg,gif,ico}`
 ];
 
-console.log(process.env.NODE_ENV)
-const nodeEnv = process.env.NODE_ENV
 
-if (nodeEnv === 'production') {
+const NODE_ENV = process.env.NODE_ENV
+console.log(`current env ${NODE_ENV}`)
+if (NODE_ENV === 'production') {
   wxmlFiles.push(`!${srcPath}/pageList/*.wxml`, `!${srcPath}/componentList/*.wxml`);
   lessFiles.push(`!${srcPath}/pageList/*.less`, `!${srcPath}/componentList/*.less`);
   jsonFiles.push(`!${srcPath}/pageList/*.json`, `!${srcPath}/componentList/*.json`);
@@ -99,7 +99,7 @@ gulp.task(wxss);
 
 /* 编译压缩图片 */
 const img = () => {
-  if (nodeEnv === 'production') {
+  if (NODE_ENV === 'production') {
     return gulp
       .src(imgFiles, { since: gulp.lastRun(img) })
       // .pipe( imagemin()) 
