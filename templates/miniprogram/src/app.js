@@ -1,11 +1,11 @@
-import {setNavBarSize} from './utils/sysApis';
-import {Router, Path} from "./router/index"
+import { setNavBarSize } from './utils/sysApis';
+import { Router, Path } from "./router/index"
 import { storageKeyMap, getLocalStorage } from './utils/localStorage';
 
 App({
   onLaunch() {
     // 设置导航栏尺寸
-    setNavBarSize(({navHeight, navTop, windowHeight, screenHeight, navBarHeight}) => {
+    setNavBarSize(({ navHeight, navTop, windowHeight, screenHeight, navBarHeight }) => {
       this.globalData.navHeight = navHeight;
       this.globalData.navTop = navTop;
       this.globalData.windowHeight = windowHeight;
@@ -13,9 +13,14 @@ App({
       this.globalData.navBarHeight = navBarHeight
       this.globalData.screenHeight = screenHeight
     });
-    
+
+    // 判断当前用户是否登录， 若没有登录相关逻辑，可以注释一下逻辑
     if (!getLocalStorage(storageKeyMap.isLogined)) {
-      Router.push(Path.login)
+      if (!Path.login) {
+        console.error("登录页面不存在")
+      } else {
+        Router.push(Path.login)
+      }
     }
   },
   onShow() {

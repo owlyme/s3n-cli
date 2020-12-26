@@ -1,9 +1,9 @@
 // storage 的 key值不可以随便定义，必须提前做好限制，防止后期混乱
 export const storageKeyMap = {
-    keywords: 'keywords',
-    isLogined: 'isLogined'
-  }
-  // 每次添加或者修改是都需要验证 key
+  keywords: 'keywords',
+  isLogined: 'isLogined'
+};
+// 每次添加或者修改是都需要验证 key
 const validateKey = key => storageKeyMap[key]
 
 function initStorage() {
